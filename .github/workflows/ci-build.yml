@@ -2,7 +2,6 @@ name: Build Android and iOS
 on: [pull_request]
 jobs:
   build-android:
-    needs: install-and-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,7 +25,6 @@ jobs:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
   build-ios:
-    needs: install-and-test
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
