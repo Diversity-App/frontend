@@ -5,9 +5,9 @@
       "node": true
 },
   "extends": [
-  "plugin:react/recommended",
-  "eslint:recommended",
-  "prettier"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier"
 ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
