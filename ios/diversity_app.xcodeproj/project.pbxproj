@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* diversityFrontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* diversityFrontTests.m */; };
+		00E356F31AD99517003FC87E /* diversity_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* diversity_appTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1AEE088496414577A511C58E /* libPods-diversityFront.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C7B61E6224536749A3EA26 /* libPods-diversityFront.a */; };
-		2F44FB17A31474D29172C031 /* libPods-diversityFront-diversityFrontTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB34FD0479144DF9EFC2F0B /* libPods-diversityFront-diversityFrontTests.a */; };
+		6172F2D35A4C3AA820D92908 /* libPods-diversity_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-diversity_app.a */; };
+		7EF68E3733C33B6898317E18 /* libPods-diversity_app-diversity_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-diversity_app-diversity_appTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -22,27 +22,27 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = diversityFront;
+			remoteInfo = diversity_app;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* diversityFrontTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diversityFrontTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* diversity_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diversity_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* diversityFrontTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diversityFrontTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* diversityFront.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diversityFront.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = diversityFront/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = diversityFront/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = diversityFront/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = diversityFront/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = diversityFront/main.m; sourceTree = "<group>"; };
-		20ADC6D76D2609C1D5043091 /* Pods-diversityFront.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversityFront.debug.xcconfig"; path = "Target Support Files/Pods-diversityFront/Pods-diversityFront.debug.xcconfig"; sourceTree = "<group>"; };
-		2B68EFB58F27EC0AE4317191 /* Pods-diversityFront-diversityFrontTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversityFront-diversityFrontTests.release.xcconfig"; path = "Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests.release.xcconfig"; sourceTree = "<group>"; };
-		55C7B61E6224536749A3EA26 /* libPods-diversityFront.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-diversityFront.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69ED2279BFA7CC4E8F40BC4F /* Pods-diversityFront-diversityFrontTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversityFront-diversityFrontTests.debug.xcconfig"; path = "Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = diversityFront/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C02B9EE63423E8EBCF3DA0F1 /* Pods-diversityFront.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversityFront.release.xcconfig"; path = "Target Support Files/Pods-diversityFront/Pods-diversityFront.release.xcconfig"; sourceTree = "<group>"; };
-		DEB34FD0479144DF9EFC2F0B /* libPods-diversityFront-diversityFrontTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-diversityFront-diversityFrontTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* diversity_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diversity_appTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* diversity_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diversity_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = diversity_app/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = diversity_app/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = diversity_app/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = diversity_app/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = diversity_app/main.m; sourceTree = "<group>"; };
+		1D0AE47A65C8663E3B452821 /* Pods-diversity_app-diversity_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversity_app-diversity_appTests.release.xcconfig"; path = "Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests.release.xcconfig"; sourceTree = "<group>"; };
+		6423831EA8574132BED9D8CC /* libPods-diversity_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-diversity_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C97AB639B58BBB4B15BBE30 /* Pods-diversity_app-diversity_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversity_app-diversity_appTests.debug.xcconfig"; path = "Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = diversity_app/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ABFE59519B596E51CEFDCCC0 /* libPods-diversity_app-diversity_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-diversity_app-diversity_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0A881CF5CF3F2B244570E2A /* Pods-diversity_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversity_app.debug.xcconfig"; path = "Target Support Files/Pods-diversity_app/Pods-diversity_app.debug.xcconfig"; sourceTree = "<group>"; };
+		D00AAFFCFCFDA5787532823F /* Pods-diversity_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diversity_app.release.xcconfig"; path = "Target Support Files/Pods-diversity_app/Pods-diversity_app.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F44FB17A31474D29172C031 /* libPods-diversityFront-diversityFrontTests.a in Frameworks */,
+				7EF68E3733C33B6898317E18 /* libPods-diversity_app-diversity_appTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +59,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AEE088496414577A511C58E /* libPods-diversityFront.a in Frameworks */,
+				6172F2D35A4C3AA820D92908 /* libPods-diversity_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* diversityFrontTests */ = {
+		00E356EF1AD99517003FC87E /* diversity_appTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* diversityFrontTests.m */,
+				00E356F21AD99517003FC87E /* diversity_appTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = diversityFrontTests;
+			path = diversity_appTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,7 +83,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* diversityFront */ = {
+		13B07FAE1A68108700A75B9A /* diversity_app */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -93,27 +93,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = diversityFront;
-			sourceTree = "<group>";
-		};
-		2770274616BAC4BE89858C49 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				20ADC6D76D2609C1D5043091 /* Pods-diversityFront.debug.xcconfig */,
-				C02B9EE63423E8EBCF3DA0F1 /* Pods-diversityFront.release.xcconfig */,
-				69ED2279BFA7CC4E8F40BC4F /* Pods-diversityFront-diversityFrontTests.debug.xcconfig */,
-				2B68EFB58F27EC0AE4317191 /* Pods-diversityFront-diversityFrontTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
+			name = diversity_app;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				55C7B61E6224536749A3EA26 /* libPods-diversityFront.a */,
-				DEB34FD0479144DF9EFC2F0B /* libPods-diversityFront-diversityFrontTests.a */,
+				6423831EA8574132BED9D8CC /* libPods-diversity_app.a */,
+				ABFE59519B596E51CEFDCCC0 /* libPods-diversity_app-diversity_appTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,12 +116,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* diversityFront */,
+				13B07FAE1A68108700A75B9A /* diversity_app */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* diversityFrontTests */,
+				00E356EF1AD99517003FC87E /* diversity_appTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				2770274616BAC4BE89858C49 /* Pods */,
+				E233CBF5F47BEE60B243DCF8 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -143,56 +131,68 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* diversityFront.app */,
-				00E356EE1AD99517003FC87E /* diversityFrontTests.xctest */,
+				13B07F961A680F5B00A75B9A /* diversity_app.app */,
+				00E356EE1AD99517003FC87E /* diversity_appTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0A881CF5CF3F2B244570E2A /* Pods-diversity_app.debug.xcconfig */,
+				D00AAFFCFCFDA5787532823F /* Pods-diversity_app.release.xcconfig */,
+				6C97AB639B58BBB4B15BBE30 /* Pods-diversity_app-diversity_appTests.debug.xcconfig */,
+				1D0AE47A65C8663E3B452821 /* Pods-diversity_app-diversity_appTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* diversityFrontTests */ = {
+		00E356ED1AD99517003FC87E /* diversity_appTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "diversityFrontTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "diversity_appTests" */;
 			buildPhases = (
-				439C2E18F388D35EF4F2664E /* [CP] Check Pods Manifest.lock */,
+				A130D646172E58E1D159D8F2 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				FD0E5A8A480BCA1A77D3B613 /* [CP] Embed Pods Frameworks */,
-				82B630654C1F1E72AE815CCB /* [CP] Copy Pods Resources */,
+				077E01280D4B4AD18B2E1770 /* [CP] Embed Pods Frameworks */,
+				4E62BDF20514810D028A5FBF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = diversityFrontTests;
-			productName = diversityFrontTests;
-			productReference = 00E356EE1AD99517003FC87E /* diversityFrontTests.xctest */;
+			name = diversity_appTests;
+			productName = diversity_appTests;
+			productReference = 00E356EE1AD99517003FC87E /* diversity_appTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* diversityFront */ = {
+		13B07F861A680F5B00A75B9A /* diversity_app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "diversityFront" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "diversity_app" */;
 			buildPhases = (
-				F80433A61552F664C1E0B9F2 /* [CP] Check Pods Manifest.lock */,
+				3E482C27206C4DEF2FE45063 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				4E04E225C5AFABA1B6750DFB /* [CP] Embed Pods Frameworks */,
-				1574DA34F171417FFFD1EBA7 /* [CP] Copy Pods Resources */,
+				C8AC78B0264D0F9F6F6D630E /* [CP] Embed Pods Frameworks */,
+				ADC9DDC32298B72B3CF5DC8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = diversityFront;
-			productName = diversityFront;
-			productReference = 13B07F961A680F5B00A75B9A /* diversityFront.app */;
+			name = diversity_app;
+			productName = diversity_app;
+			productReference = 13B07F961A680F5B00A75B9A /* diversity_app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "diversityFront" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "diversity_app" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* diversityFront */,
-				00E356ED1AD99517003FC87E /* diversityFrontTests */,
+				13B07F861A680F5B00A75B9A /* diversity_app */,
+				00E356ED1AD99517003FC87E /* diversity_appTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,24 +265,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		1574DA34F171417FFFD1EBA7 /* [CP] Copy Pods Resources */ = {
+		077E01280D4B4AD18B2E1770 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront/Pods-diversityFront-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront/Pods-diversityFront-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversityFront/Pods-diversityFront-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		439C2E18F388D35EF4F2664E /* [CP] Check Pods Manifest.lock */ = {
+		3E482C27206C4DEF2FE45063 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,48 +297,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-diversityFront-diversityFrontTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-diversity_app-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4E04E225C5AFABA1B6750DFB /* [CP] Embed Pods Frameworks */ = {
+		4E62BDF20514810D028A5FBF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront/Pods-diversityFront-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront/Pods-diversityFront-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversityFront/Pods-diversityFront-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		82B630654C1F1E72AE815CCB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversity_app-diversity_appTests/Pods-diversity_app-diversity_appTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F80433A61552F664C1E0B9F2 /* [CP] Check Pods Manifest.lock */ = {
+		A130D646172E58E1D159D8F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,28 +336,45 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-diversityFront-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-diversity_app-diversity_appTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD0E5A8A480BCA1A77D3B613 /* [CP] Embed Pods Frameworks */ = {
+		ADC9DDC32298B72B3CF5DC8E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app/Pods-diversity_app-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app/Pods-diversity_app-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversityFront-diversityFrontTests/Pods-diversityFront-diversityFrontTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversity_app/Pods-diversity_app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8AC78B0264D0F9F6F6D630E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app/Pods-diversity_app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-diversity_app/Pods-diversity_app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diversity_app/Pods-diversity_app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* diversityFrontTests.m in Sources */,
+				00E356F31AD99517003FC87E /* diversity_appTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +421,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* diversityFront */;
+			target = 13B07F861A680F5B00A75B9A /* diversity_app */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,14 +429,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69ED2279BFA7CC4E8F40BC4F /* Pods-diversityFront-diversityFrontTests.debug.xcconfig */;
+			baseConfigurationReference = 6C97AB639B58BBB4B15BBE30 /* Pods-diversity_app-diversity_appTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = diversityFrontTests/Info.plist;
+				INFOPLIST_FILE = diversity_appTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,17 +450,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/diversityFront.app/diversityFront";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/diversity_app.app/diversity_app";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B68EFB58F27EC0AE4317191 /* Pods-diversityFront-diversityFrontTests.release.xcconfig */;
+			baseConfigurationReference = 1D0AE47A65C8663E3B452821 /* Pods-diversity_app-diversity_appTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = diversityFrontTests/Info.plist;
+				INFOPLIST_FILE = diversity_appTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,19 +474,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/diversityFront.app/diversityFront";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/diversity_app.app/diversity_app";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20ADC6D76D2609C1D5043091 /* Pods-diversityFront.debug.xcconfig */;
+			baseConfigurationReference = C0A881CF5CF3F2B244570E2A /* Pods-diversity_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = diversityFront/Info.plist;
+				INFOPLIST_FILE = diversity_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,7 +497,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = diversityFront;
+				PRODUCT_NAME = diversity_app;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -506,12 +506,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C02B9EE63423E8EBCF3DA0F1 /* Pods-diversityFront.release.xcconfig */;
+			baseConfigurationReference = D00AAFFCFCFDA5787532823F /* Pods-diversity_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = diversityFront/Info.plist;
+				INFOPLIST_FILE = diversity_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +522,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = diversityFront;
+				PRODUCT_NAME = diversity_app;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -656,7 +656,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "diversityFrontTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "diversity_appTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -665,7 +665,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "diversityFront" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "diversity_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -674,7 +674,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "diversityFront" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "diversity_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

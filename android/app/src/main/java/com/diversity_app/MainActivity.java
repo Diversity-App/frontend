@@ -1,4 +1,4 @@
-package com.diversityfront;
+package com.diversity_app;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "diversityFront";
+    return "diversity_app";
   }
 }
