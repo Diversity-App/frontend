@@ -1,7 +1,7 @@
 name: Build Android and iOS
-on: [pull_request, push]
+on: [ pull_request, push ]
 jobs:
-  npm-install:
+  npm-installs:
     runs-on: ubuntu-latest
     steps:
       - name: Cache npm dependencies
@@ -10,10 +10,10 @@ jobs:
         with:
           path: ./node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
-    - name: Install dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: npm install
-  pods-install:
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+  pods-installs:
     runs-on: macos-latest
     steps:
       - uses: actions/cache@v2
@@ -57,9 +57,6 @@ jobs:
           key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-caches-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
       - name: Build Android Release
         working-directory: ./android
         run: ./gradlew assembleRelease -PMYAPP_UPLOAD_STORE_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}' -PMYAPP_UPLOAD_KEY_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}'
@@ -69,7 +66,7 @@ jobs:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
   build-ios:
-    needs: [npm-intall, pods-install]
+    needs: [ npm-intall, pods-install ]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
