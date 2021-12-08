@@ -15,6 +15,7 @@ jobs:
         run: npm install
   pods-installs:
     runs-on: macos-latest
+    needs: npm-installs
     steps:
       - uses: actions/cache@v2
         name: Cache Cocoapod dependencies
@@ -66,7 +67,7 @@ jobs:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
   build-ios:
-    needs: [ npm-intalls, pods-installs ]
+    needs: pods-installs
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
