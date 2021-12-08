@@ -58,7 +58,6 @@ jobs:
         with:
           path: ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-
       - name: Cache Gradle Dependencies
         uses: actions/cache@v2
         with:
@@ -94,17 +93,10 @@ jobs:
         name: Cache Cocoapod dependencies
         id: pods
         with:
-          path: Pods
+          path: ./ios/Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
-      - name: Install pod dependencies
-        if: steps.pods.outputs.cache-hit != 'true'
-        working-directory: ./ios
-        run: pod install
       - name: Build app
         working-directory: ./ios
         run: |
