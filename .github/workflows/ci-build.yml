@@ -20,8 +20,8 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
       - name: Build Android Release
-        run: |
-          cd android && ./gradlew assembleRelease -PMYAPP_UPLOAD_STORE_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}' -PMYAPP_UPLOAD_KEY_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}'
+        working-directory: ./android
+        run: ./gradlew assembleRelease -PMYAPP_UPLOAD_STORE_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}' -PMYAPP_UPLOAD_KEY_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}'
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -55,9 +55,10 @@ jobs:
         run: npm install
       - name: Install pod dependencies
         if: steps.pods.outputs.cache-hit != 'true'
-        run: |
-          cd ios && pod install
+        working-directory: ./ios
+        run: pod install
       - name: Build app
+        working-directory: ./ios
         run: |
           xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app archive -archivePath myapp.xcarchive -allowProvisioningUpdates
           xcodebuild -exportArchive -archivePath ./myapp.xcarchive -exportPath . -exportOptionsPlist myapp/Info.plist
