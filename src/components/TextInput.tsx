@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { StyleSheet, Text, TextInput as NativeInput } from 'react-native';
-import { Input, Item, Label } from 'native-base';
+// import { Input, Item, Label } from 'native-base';
 import { theme } from '../core/theme';
 
 type Props = React.ComponentProps<typeof NativeInput> & {
@@ -11,7 +11,7 @@ type Props = React.ComponentProps<typeof NativeInput> & {
 
 const TextInput = ({ label, errorText, ...props }: Props) => (
   <>
-    <Item floatingLabel style={styles.container}>
+    {/* <Item floatingLabel style={styles.container}>
       <Label style={styles.label}>{label}</Label>
       <Input
         style={styles.input}
@@ -19,7 +19,8 @@ const TextInput = ({ label, errorText, ...props }: Props) => (
         {...props}
       />
     </Item>
-    {errorText ? <Text style={styles.error}>{errorText}</Text> : null}
+    {errorText ? <Text style={styles.error}>{errorText}</Text> : null} */}
+    <Text>test</Text>
   </>
 );
 
