@@ -44,22 +44,19 @@ jobs:
           key: modules-${{ hashFiles('package-lock.json') }}
       - uses: actions/cache@v2
         name: Cache Cocoapod dependencies
+        id: pods
         with:
-          id: pods
           path: Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
-      - name: Move to directory
-        run: cd ios
       - name: Install pod dependencies
         if: steps.pods.outputs.cache-hit != 'true'
         run: |
-          pod install
+          cd ios && pod install
       - name: Build app
         run: |
           xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app archive -archivePath myapp.xcarchive -allowProvisioningUpdates
