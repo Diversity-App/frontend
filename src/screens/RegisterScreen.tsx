@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
@@ -9,6 +9,7 @@ import { theme } from '../core/theme';
 import { Navigation } from '../types';
 import { emailValidator, passwordValidator, nameValidator } from '../core/utils';
 import { Input } from 'react-native-elements';
+import { Button } from 'react-native-paper';
 
 type Props = {
     navigation: Navigation;
@@ -62,7 +63,9 @@ const RegisterScreen = ({ navigation }: Props) => {
                 onChangeText={(text) => setPassword({ value: text, error: 'error' })}
             />
 
-            <Button title="Sign Up" onPress={_onSignUpPressed} />
+            <Button color={'#0386D0'} mode="contained" onPress={_onSignUpPressed}>
+                Sign Up
+            </Button>
 
             <View style={styles.row}>
                 <Text style={styles.label}>Already have an account? </Text>

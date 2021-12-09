@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, Button } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
@@ -9,6 +9,7 @@ import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
 import { Navigation } from '../types';
 import { Input } from 'react-native-elements';
+import { Button } from 'react-native-paper';
 
 type Props = {
     navigation: Navigation;
@@ -47,7 +48,9 @@ const LoginScreen = ({ navigation }: Props) => {
                 inputStyle={{ color: 'white' }}
                 onChangeText={(text) => setPassword({ value: text, error: 'error' })}
             />
-            <Button title="Login" onPress={_onLoginPressed} />
+            <Button color={'#0386D0'} mode="contained" onPress={_onLoginPressed}>
+                Log In
+            </Button>
             <View style={styles.row}>
                 <Text style={styles.label}>Don’t have an account? </Text>
                 <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
