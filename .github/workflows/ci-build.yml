@@ -43,11 +43,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        name: Installing NodeJS
-        with:
-          node-version: '14'
-          cache: 'npm'
       - name: Cache npm dependencies
         id: cache
         uses: actions/cache@v2
@@ -66,6 +61,11 @@ jobs:
           key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-caches-
+      - uses: actions/setup-node@v2
+        name: Installing NodeJS
+        with:
+          node-version: '14'
+          cache: 'npm'
       - name: Build Android Release
         working-directory: ./android
         run: ./gradlew assembleRelease -PMYAPP_UPLOAD_STORE_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}' -PMYAPP_UPLOAD_KEY_PASSWORD='${{ secrets.KEYSTORE_PASSWORD }}'
