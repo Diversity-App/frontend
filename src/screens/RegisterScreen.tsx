@@ -22,6 +22,7 @@ const RegisterScreen = ({ navigation }: Props) => {
   const [name, setName] = useState({ value: '', error: '' });
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
+  const [cont, setCont] = useState('');
 
   const _onSignUpPressed = () => {
     const nameError = nameValidator(name.value);
@@ -46,14 +47,14 @@ const RegisterScreen = ({ navigation }: Props) => {
 
       <Header>Create Account</Header>
 
-      <TextInput
+      {/* <TextInput
         label="Name"
         returnKeyType="next"
         value={name.value}
         onChangeText={text => setName({ value: text, error: '' })}
         error={!!name.error}
         errorText={name.error}
-      />
+      /> */}
 
       <TextInput
         label="Email"
