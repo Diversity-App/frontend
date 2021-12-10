@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-na
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
-// import Button from '../components/Button';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
 import { Navigation } from '../types';
@@ -15,12 +14,6 @@ import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-
 type Props = {
     navigation: Navigation;
 };
-
-// type AppProps = {
-//     index: number;
-//     symbol: string;
-//     isFocused: boolean;
-// };
 
 const RegisterScreen = ({ navigation }: Props) => {
     const [name, setName] = useState({ value: '', error: '' });
@@ -82,7 +75,7 @@ const RegisterScreen = ({ navigation }: Props) => {
                 renderCell={({ index, symbol, isFocused }) => {
                     let textChild = null;
 
-                    if (symbol) textChild = enableMask ? '•' : symbol;
+                    if (symbol) textChild = enableMask ? '\u2B24' : symbol;
 
                     return (
                         <Text
@@ -98,12 +91,6 @@ const RegisterScreen = ({ navigation }: Props) => {
             <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
                 {enableMask ? 'View Code' : 'Hide code'}
             </Button>
-            {/* <Input
-                placeholder="Password"
-                secureTextEntry={true}
-                inputStyle={{ color: 'white' }}
-                onChangeText={(text) => setPassword({ value: text, error: 'error' })}
-            /> */}
 
             <Button color={'#0386D0'} mode="contained" onPress={_onSignUpPressed}>
                 Sign Up
@@ -140,7 +127,7 @@ const styles = StyleSheet.create({
     cell: {
         width: 60,
         height: 60,
-        lineHeight: 38,
+        lineHeight: 55,
         fontSize: 24,
         borderWidth: 2,
         borderColor: '#eee',
