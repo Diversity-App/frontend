@@ -99,8 +99,8 @@ jobs:
       - name: Build app
         working-directory: ./ios
         run: |
-          xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app archive -archivePath myapp.xcarchive -allowProvisioningUpdates CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -configuration Debug -sdk iphoneos -derivedDataPath build
-          xcodebuild -exportArchive -archivePath ./myapp.xcarchive -exportPath . -exportOptionsPlist myapp/Info.plist CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -configuration Debug -sdk iphoneos -derivedDataPath build
+          xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app archive -archivePath myapp.xcarchive -allowProvisioningUpdates CODE_SIGN_IDENTITY="iPhone Distribution: Diversity App" CODE_SIGNING_REQUIRED=NO -configuration Debug -sdk iphoneos -derivedDataPath build
+          xcodebuild -exportArchive -archivePath ./myapp.xcarchive -exportPath . -exportOptionsPlist myapp/Info.plist CODE_SIGN_IDENTITY="iPhone Distribution: Diversity App" CODE_SIGNING_REQUIRED=NO -configuration Debug -sdk iphoneos -derivedDataPath build
           mv diversity_app.ipa ../diversity_app.ipa
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
