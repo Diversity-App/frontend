@@ -16,7 +16,7 @@ const Dashboard = ({ navigation }: Props) => (
         <Logo />
         <Header>Let’s start</Header>
         <Paragraph>
-            Your amazing app starts here. Open you favourite code editor and start editing this project.
+            Let's go for the code !!
         </Paragraph>
         <Button title="Logout" onPress={() => navigation.navigate('HomeScreen')} />
     </Background>

@@ -21,7 +21,11 @@ const HomeScreen = ({ navigation }: Props) => (
         <Header>Diversity</Header>
 
         <Paragraph>Ouvrez vous a de nouveaux horizons médiatiques.</Paragraph>
-        <Button style={{margin: 10}} mode="contained" color={'#0386D0'} onPress={() => navigation.navigate('LoginScreen')}>
+        <Button
+            style={{ margin: 10 }}
+            mode="contained"
+            color={'#0386D0'}
+            onPress={() => navigation.navigate('LoginScreen')}>
             Log In
         </Button>
         <Button mode="contained" color={'#0386D0'} onPress={() => navigation.navigate('RegisterScreen')}>

@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
@@ -7,33 +7,63 @@ import Header from '../components/Header';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
 import { Navigation } from '../types';
-import { emailValidator, passwordValidator, nameValidator } from '../core/utils';
+import { passwordValidator, nameValidator } from '../core/utils';
 import { Input } from 'react-native-elements';
 import { Button } from 'react-native-paper';
+import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
 
 type Props = {
     navigation: Navigation;
 };
 
+type AppProps = {
+    index: number;
+    symbol: string;
+    isFocused: boolean;
+};
+
 const RegisterScreen = ({ navigation }: Props) => {
     const [name, setName] = useState({ value: '', error: '' });
-    const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
     const [cont, setCont] = useState('');
-
+    const CELL_COUNT = 5;
+    const [enableMask, setEnableMask] = useState(true);
+    const [value, setValue] = useState('');
+    const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
+    const [props, getCellOnLayoutHandler] = useClearByFocusCell({
+        value,
+        setValue,
+    });
     const _onSignUpPressed = () => {
         const nameError = nameValidator(name.value);
-        const emailError = emailValidator(email.value);
         const passwordError = passwordValidator(password.value);
 
-        if (emailError || passwordError || nameError) {
+        if (passwordError || nameError) {
             setName({ ...name, error: nameError });
-            setEmail({ ...email, error: emailError });
             setPassword({ ...password, error: passwordError });
             return;
         }
 
         navigation.navigate('Dashboard');
+    };
+    const toggleMask = () => setEnableMask((f) => !f);
+
+    const renderCell = ({ index, symbol, isFocused }: AppProps) => {
+        let textChild = null;
+
+        if (symbol) {
+            textChild = enableMask ? '•' : symbol;
+        } else if (isFocused) {
+            textChild = <Cursor />;
+        }
+        return (
+            <Text
+                key={index}
+                style={[styles.cell, isFocused && styles.focusCell]}
+                onLayout={getCellOnLayoutHandler(index)}>
+                {textChild}
+            </Text>
+        );
     };
 
     return (
@@ -43,17 +73,24 @@ const RegisterScreen = ({ navigation }: Props) => {
             <Logo />
 
             <Header>Create Account</Header>
+            <CodeField
+                ref={ref}
+                {...props}
+                value={value}
+                onChangeText={setValue}
+                cellCount={CELL_COUNT}
+                keyboardType="number-pad"
+                textContentType="oneTimeCode"
+                renderCell={renderCell}
+            />
+            <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
+                {enableMask ? 'View Code' : 'Hide code'}
+            </Button>
 
             <Input
                 placeholder="Username"
                 inputStyle={{ color: 'white' }}
                 onChangeText={(text) => setName({ value: text, error: 'error' })}
-            />
-
-            <Input
-                placeholder="Mail"
-                inputStyle={{ color: 'white' }}
-                onChangeText={(text) => setEmail({ value: text, error: 'error' })}
             />
 
             <Input
@@ -91,6 +128,27 @@ const styles = StyleSheet.create({
     link: {
         fontWeight: 'bold',
         color: theme.colors.primary,
+    },
+    root: { padding: 20, minHeight: 300 },
+    title: { textAlign: 'center', fontSize: 30 },
+    fieldRow: {
+        marginTop: 20,
+        flexDirection: 'row',
+        marginLeft: 8,
+    },
+    cell: {
+        width: 55,
+        height: 55,
+        lineHeight: 55,
+        fontSize: 30,
+        fontWeight: '700',
+        textAlign: 'center',
+        marginLeft: 8,
+        borderRadius: 26,
+        backgroundColor: '#eee',
+    },
+    focusCell: {
+        borderColor: '#000',
     },
 });
 
