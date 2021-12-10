@@ -523,8 +523,9 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "Apple Development: corentinmas@yahoo.com (NYD9DDM285)";
 				COPY_PHASE_STRIP = NO;
+				"DEVELOPMENT_TEAM[sdk=*]" = DB656728D3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -556,6 +557,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
