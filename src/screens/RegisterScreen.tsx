@@ -16,27 +16,34 @@ type Props = {
     navigation: Navigation;
 };
 
-type AppProps = {
-    index: number;
-    symbol: string;
-    isFocused: boolean;
-};
+// type AppProps = {
+//     index: number;
+//     symbol: string;
+//     isFocused: boolean;
+// };
 
 const RegisterScreen = ({ navigation }: Props) => {
     const [name, setName] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
     const [cont, setCont] = useState('');
-    const CELL_COUNT = 5;
+    const CELL_COUNT = 4;
     const [enableMask, setEnableMask] = useState(true);
     const [value, setValue] = useState('');
-    const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
+    const ref = useBlurOnFulfill({ value: password.value, cellCount: CELL_COUNT });
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-        value,
-        setValue,
+        value: password.value,
+        setValue: setValue,
     });
     const _onSignUpPressed = () => {
+        console.log(password.value, ' => ', name.value);
         const nameError = nameValidator(name.value);
         const passwordError = passwordValidator(password.value);
+
+        if (nameError) {
+            console.log('nameError');
+        } else if (passwordError) {
+            console.log('passWord');
+        }
 
         if (passwordError || nameError) {
             setName({ ...name, error: nameError });
@@ -48,57 +55,55 @@ const RegisterScreen = ({ navigation }: Props) => {
     };
     const toggleMask = () => setEnableMask((f) => !f);
 
-    const renderCell = ({ index, symbol, isFocused }: AppProps) => {
-        let textChild = null;
-
-        if (symbol) {
-            textChild = enableMask ? '•' : symbol;
-        } else if (isFocused) {
-            textChild = <Cursor />;
-        }
-        return (
-            <Text
-                key={index}
-                style={[styles.cell, isFocused && styles.focusCell]}
-                onLayout={getCellOnLayoutHandler(index)}>
-                {textChild}
-            </Text>
-        );
-    };
-
     return (
         <Background>
             <BackButton goBack={() => navigation.navigate('HomeScreen')} />
 
             <Logo />
 
-            <Header>Create Account</Header>
-            <CodeField
-                ref={ref}
-                {...props}
-                value={value}
-                onChangeText={setValue}
-                cellCount={CELL_COUNT}
-                keyboardType="number-pad"
-                textContentType="oneTimeCode"
-                renderCell={renderCell}
-            />
-            <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
-                {enableMask ? 'View Code' : 'Hide code'}
-            </Button>
+            <Header>Create Account.</Header>
 
             <Input
                 placeholder="Username"
                 inputStyle={{ color: 'white' }}
-                onChangeText={(text) => setName({ value: text, error: 'error' })}
+                onChangeText={(text) => setName({ value: text, error: 'NameError' })}
             />
 
-            <Input
+            <CodeField
+                ref={ref}
+                {...props}
+                // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
+                value={password.value}
+                onChangeText={(text) => setPassword({ value: text, error: 'NameError' })}
+                cellCount={CELL_COUNT}
+                rootStyle={styles.codeFieldRoot}
+                keyboardType="number-pad"
+                textContentType="oneTimeCode"
+                renderCell={({ index, symbol, isFocused }) => {
+                    let textChild = null;
+
+                    if (symbol) textChild = enableMask ? '•' : symbol;
+
+                    return (
+                        <Text
+                            key={index}
+                            style={[styles.cell, isFocused && styles.focusCell]}
+                            onLayout={getCellOnLayoutHandler(index)}>
+                            {textChild}
+                        </Text>
+                    );
+                }}
+            />
+
+            <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
+                {enableMask ? 'View Code' : 'Hide code'}
+            </Button>
+            {/* <Input
                 placeholder="Password"
                 secureTextEntry={true}
                 inputStyle={{ color: 'white' }}
                 onChangeText={(text) => setPassword({ value: text, error: 'error' })}
-            />
+            /> */}
 
             <Button color={'#0386D0'} mode="contained" onPress={_onSignUpPressed}>
                 Sign Up
@@ -129,23 +134,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: theme.colors.primary,
     },
-    root: { padding: 20, minHeight: 300 },
+    root: { flex: 1, padding: 20 },
     title: { textAlign: 'center', fontSize: 30 },
-    fieldRow: {
-        marginTop: 20,
-        flexDirection: 'row',
-        marginLeft: 8,
-    },
+    codeFieldRoot: { marginTop: 20 },
     cell: {
-        width: 55,
-        height: 55,
-        lineHeight: 55,
-        fontSize: 30,
-        fontWeight: '700',
+        width: 60,
+        height: 60,
+        lineHeight: 38,
+        fontSize: 24,
+        borderWidth: 2,
+        borderColor: '#eee',
+        margin: 5,
         textAlign: 'center',
-        marginLeft: 8,
-        borderRadius: 26,
-        backgroundColor: '#eee',
+        borderRadius: 5,
     },
     focusCell: {
         borderColor: '#000',

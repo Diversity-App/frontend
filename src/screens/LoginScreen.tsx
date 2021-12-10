@@ -19,35 +19,18 @@ type Props = {
 const LoginScreen = ({ navigation }: Props) => {
     const [name, setName] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
-
-    // const styles = StyleSheet.create({
-    //     root: { flex: 1, padding: 20 },
-    //     title: { textAlign: 'center', fontSize: 30 },
-    //     codeFieldRoot: { marginTop: 20 },
-    //     cell: {
-    //         width: 40,
-    //         height: 40,
-    //         lineHeight: 38,
-    //         fontSize: 24,
-    //         borderWidth: 2,
-    //         borderColor: '#00000030',
-    //         textAlign: 'center',
-    //     },
-    //     focusCell: {
-    //         borderColor: '#000',
-    //     },
-    // });
-
-    const CELL_COUNT = 6;
-
+    const [enableMask, setEnableMask] = useState(true);
+    const CELL_COUNT = 4;
+    const toggleMask = () => setEnableMask((f) => !f);
     const [value, setValue] = useState('');
     const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-        value,
-        setValue,
+        value: password.value,
+        setValue: setValue,
     });
 
     const _onLoginPressed = () => {
+        console.log(password.value, ' => ', name.value);
         const nameError = nameValidator(name.value);
         const passwordError = passwordValidator(password.value);
 
@@ -65,36 +48,39 @@ const LoginScreen = ({ navigation }: Props) => {
             <BackButton goBack={() => navigation.navigate('HomeScreen')} />
             <Logo />
             <Header>Welcome back.</Header>
-            <CodeField
-                ref={ref}
-                {...props}
-                // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
-                value={value}
-                onChangeText={setValue}
-                cellCount={CELL_COUNT}
-                rootStyle={styles.codeFieldRoot}
-                keyboardType="number-pad"
-                textContentType="oneTimeCode"
-                renderCell={({ index, symbol, isFocused }) => (
-                    <Text
-                        key={index}
-                        style={[styles.cell, isFocused && styles.focusCell]}
-                        onLayout={getCellOnLayoutHandler(index)}>
-                        {symbol || (isFocused ? <Cursor /> : null)}
-                    </Text>
-                )}
-            />
             <Input
                 placeholder="Name"
                 inputStyle={{ color: 'white' }}
                 onChangeText={(text) => setName({ value: text, error: 'error' })}
             />
-            <Input
-                placeholder="Password"
-                secureTextEntry={true}
-                inputStyle={{ color: 'white' }}
-                onChangeText={(text) => setPassword({ value: text, error: 'error' })}
+            <CodeField
+                ref={ref}
+                {...props}
+                // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
+                value={password.value}
+                onChangeText={(text) => setPassword({ value: text, error: 'NameError' })}
+                cellCount={CELL_COUNT}
+                rootStyle={styles.codeFieldRoot}
+                keyboardType="number-pad"
+                textContentType="oneTimeCode"
+                renderCell={({ index, symbol, isFocused }) => {
+                    let textChild = null;
+
+                    if (symbol) textChild = enableMask ? '•' : symbol;
+
+                    return (
+                        <Text
+                            key={index}
+                            style={[styles.cell, isFocused && styles.focusCell]}
+                            onLayout={getCellOnLayoutHandler(index)}>
+                            {textChild}
+                        </Text>
+                    );
+                }}
             />
+            <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
+                {enableMask ? 'View Code' : 'Hide code'}
+            </Button>
             <Button color={'#0386D0'} mode="contained" onPress={_onLoginPressed}>
                 Log In
             </Button>
@@ -121,20 +107,22 @@ const styles = StyleSheet.create({
         color: theme.colors.primary,
     },
     root: { flex: 1, padding: 20 },
-        title: { textAlign: 'center', fontSize: 30 },
-        codeFieldRoot: { marginTop: 20 },
-        cell: {
-            width: 40,
-            height: 40,
-            lineHeight: 38,
-            fontSize: 24,
-            borderWidth: 2,
-            borderColor: '#00000030',
-            textAlign: 'center',
-        },
-        focusCell: {
-            borderColor: '#000',
-        },
+    title: { textAlign: 'center', fontSize: 30 },
+    codeFieldRoot: { marginTop: 20 },
+    cell: {
+        width: 60,
+        height: 60,
+        lineHeight: 38,
+        fontSize: 24,
+        borderWidth: 2,
+        borderColor: '#eee',
+        margin: 5,
+        textAlign: 'center',
+        borderRadius: 5,
+    },
+    focusCell: {
+        borderColor: '#000',
+    },
 });
 
 export default memo(LoginScreen);
