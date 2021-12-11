@@ -105,14 +105,14 @@ jobs:
         working-directory: ./ios
         run: |
           "xcodebuild \
+          CODE_SIGNING_ALLOWED=NO \
           -workspace diversity_app.xcworkspace \
           -scheme diversity_app \
           clean archive \
           -sdk iphoneos \
           -configuration Debug \
           -UseModernBuildSystem=NO \
-          -archivePath $PWD/diversity_app \
-          CODE_SIGNING_ALLOWED=NO"
+          -archivePath $PWD/diversity_app"
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
