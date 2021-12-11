@@ -105,7 +105,6 @@ jobs:
         run: xcodebuild \
           CODE_SIGNING_ALLOWED=NO \
           -workspace diversity_app.xcworkspace \
-          -project diversity_app.xcodeproj
           -scheme diversity_app \
           clean archive \
           -sdk iphoneos \
