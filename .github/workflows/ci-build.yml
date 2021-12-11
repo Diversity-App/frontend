@@ -102,15 +102,7 @@ jobs:
             ${{ runner.os }}-pods-
       - name: Build app
         working-directory: ./ios
-        run: xcodebuild \
-          -project diversity_app.xcodeproj \
-          -scheme diversity_app \
-          clean archive \
-          -sdk iphoneos \
-          -configuration Debug \
-          -UseModernBuildSystem=NO \
-          -archivePath $PWD/diversity_app \
-          CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app clean archive -sdk iphoneos -configuration Debug -UseModernBuildSystem=NO -archivePath $PWD/diversity_app CODE_SIGNING_ALLOWED=NO
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
