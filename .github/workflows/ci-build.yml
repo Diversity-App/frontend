@@ -103,7 +103,7 @@ jobs:
       - name: Build app
         working-directory: ./ios
         run: xcodebuild \
-          -workspace diversity_app.xcworkspace \
+          -project diversity_app.xcodeproj \
           -scheme diversity_app \
           clean archive \
           -sdk iphoneos \
