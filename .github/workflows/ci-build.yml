@@ -107,7 +107,7 @@ jobs:
       - name: Export Archive
         working-directory: ./ios
         run: |
-          xcodebuild -exportArchive -archivePath ./diversity_app.xcarchive -exportPath . -exportOptionsPlist diversity_app/Info.plist CODE_SIGNING_ALLOWED=NO -configuration Debug -sdk iphoneos -derivedDataPath build
+          xcodebuild -exportArchive -archivePath -scheme diversity_app ./diversity_app.xcarchive -exportPath . -exportOptionsPlist diversity_app/Info.plist CODE_SIGNING_ALLOWED=NO -configuration Debug -sdk iphoneos -derivedDataPath build
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
