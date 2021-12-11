@@ -80,7 +80,6 @@ jobs:
   build-ios:
     needs: pods-installs
     runs-on: macos-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -107,6 +106,7 @@ jobs:
           "xcodebuild \
           CODE_SIGNING_ALLOWED=NO \
           -workspace diversity_app.xcworkspace \
+          -project diversity_app.xcodeproj
           -scheme diversity_app \
           clean archive \
           -sdk iphoneos \
