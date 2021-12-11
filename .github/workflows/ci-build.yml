@@ -100,11 +100,16 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-      - name: Build app
+      - name: Build Archive
         working-directory: ./ios
-        run: xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app clean archive -sdk iphoneos -configuration Debug -UseModernBuildSystem=NO -archivePath $PWD/diversity_app CODE_SIGNING_ALLOWED=NO
+        run: |
+          xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app clean archive -sdk iphoneos -configuration Debug -UseModernBuildSystem=NO -archivePath $PWD/diversity_app CODE_SIGNING_ALLOWED=NO
+      - name: Export Archive
+        working-directory: ./ios
+        run: |
+          xcodebuild -exportArchive -archivePath ./diversity_app.xcarchive -exportPath . -exportOptionsPlist diversity_app/Info.plist CODE_SIGNING_ALLOWED=NO -configuration Debug -sdk iphoneos -derivedDataPath build
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: myapp.ipa
-          path: ios/build/
+          name: diversity_app.ipa
+          path: ios/diversity_app.ipa
