@@ -103,11 +103,11 @@ jobs:
       - name: Build Archive
         working-directory: ./ios
         run: |
-          xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app clean archive -sdk iphoneos -configuration Debug -UseModernBuildSystem=NO -archivePath $PWD/diversity_app CODE_SIGNING_ALLOWED=NO
+          xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app archive -sdk iphoneos -configuration Debug -UseModernBuildSystem=NO -archivePath $PWD/diversity_app CODE_SIGNING_ALLOWED=NO
       - name: Export Archive
         working-directory: ./ios
         run: |
-          xcodebuild -exportArchive -archivePath -scheme diversity_app ./diversity_app.xcarchive -exportPath . -exportOptionsPlist diversity_app/Info.plist CODE_SIGNING_ALLOWED=NO -configuration Debug -sdk iphoneos build
+          xcodebuild -exportArchive -archivePath ./diversity_app.xcarchive -exportPath . -exportOptionsPlist diversity_app/Info.plist CODE_SIGNING_ALLOWED=NO -configuration Debug -sdk iphoneos build
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
