@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        name: Installing NodeJS
+        with:
+          node-version: '16'
       - name: Cache npm dependencies
         id: cache
         uses: actions/cache@v2
@@ -46,7 +50,7 @@ jobs:
       - uses: actions/setup-node@v2
         name: Installing NodeJS
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Cache npm dependencies
         id: cache
         uses: actions/cache@v2
@@ -76,12 +80,13 @@ jobs:
   build-ios:
     needs: pods-installs
     runs-on: macos-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         name: Installing NodeJS
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Cache npm dependencies
         id: cache
         uses: actions/cache@v2
