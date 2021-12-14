@@ -10,6 +10,7 @@ import { passwordValidator, nameValidator } from '../core/utils';
 import { Input } from 'react-native-elements';
 import { Button } from 'react-native-paper';
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
+import axios from 'axios';
 
 type Props = {
     navigation: Navigation;
@@ -43,6 +44,15 @@ const RegisterScreen = ({ navigation }: Props) => {
             setPassword({ ...password, error: passwordError });
             return;
         }
+
+        axios
+            .get('https://localhost/auth/register/test/test')
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log('raté');
+            });
 
         navigation.navigate('Dashboard');
     };
