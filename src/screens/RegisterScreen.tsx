@@ -28,6 +28,8 @@ const RegisterScreen = ({ navigation }: Props) => {
         value: password.value,
         setValue: setValue,
     });
+    const [error, setError] = useState('');
+
     const _onSignUpPressed = () => {
         console.log(password.value, ' => ', name.value);
         const nameError = nameValidator(name.value);
@@ -45,16 +47,30 @@ const RegisterScreen = ({ navigation }: Props) => {
             return;
         }
 
-        axios
-            .get('https://localhost/auth/register/test/test')
+        // var axios = require('axios');
+        const data = {
+            username: name.value,
+            password: password.value,
+        };
+
+        console.log(name.value);
+        console.log(password.value);
+
+        const config = {
+            method: 'post',
+            url: 'http://localhost:8080/auth/register',
+            data: data,
+        };
+
+        axios(config)
             .then(function (response) {
-                console.log(response);
+                console.log(JSON.stringify(response.data));
+                navigation.navigate('Dashboard');
             })
             .catch(function (error) {
-                console.log('raté');
+                setError('Register Error');
+                console.log(error);
             });
-
-        navigation.navigate('Dashboard');
     };
     const toggleMask = () => setEnableMask((f) => !f);
 
@@ -105,6 +121,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             <Button color={'#0386D0'} mode="contained" onPress={_onSignUpPressed}>
                 Sign Up
             </Button>
+            <Text>{error}</Text>
 
             <View style={styles.row}>
                 <Text style={styles.label}>Already have an account? </Text>

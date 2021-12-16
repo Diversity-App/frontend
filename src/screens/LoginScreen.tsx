@@ -10,6 +10,7 @@ import { Navigation } from '../types';
 import { Input } from 'react-native-elements';
 import { Button } from 'react-native-paper';
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
+import axios from 'axios';
 
 type Props = {
     navigation: Navigation;
@@ -27,6 +28,7 @@ const LoginScreen = ({ navigation }: Props) => {
         value: password.value,
         setValue: setValue,
     });
+    const [error, setError] = useState('');
 
     const _onLoginPressed = () => {
         console.log(password.value, ' => ', name.value);
@@ -39,7 +41,26 @@ const LoginScreen = ({ navigation }: Props) => {
             return;
         }
 
-        navigation.navigate('Dashboard');
+        const data = {
+            username: name.value,
+            password: password.value,
+        };
+
+        const config = {
+            method: 'post',
+            url: 'http://localhost:8080/auth/login',
+            data: data,
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                navigation.navigate('Dashboard');
+            })
+            .catch(function (error) {
+                setError('Login Error');
+                console.log(error);
+            });
     };
 
     return (
@@ -83,6 +104,7 @@ const LoginScreen = ({ navigation }: Props) => {
             <Button color={'#0386D0'} mode="contained" onPress={_onLoginPressed}>
                 Log In
             </Button>
+            <Text>{error}</Text>
             <View style={styles.row}>
                 <Text style={styles.label}>Don’t have an account? </Text>
                 <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>

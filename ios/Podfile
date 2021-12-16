@@ -12,7 +12,6 @@ target 'diversity_app' do
     :hermes_enabled => false
   )
 
-
   target 'diversity_appTests' do
     inherit! :complete
     # Pods for testing
