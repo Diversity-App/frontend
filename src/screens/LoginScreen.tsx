@@ -54,8 +54,10 @@ const LoginScreen = ({ navigation }: Props) => {
 
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
-                navigation.navigate('Dashboard');
+                // console.log(JSON.stringify(response.data.data.token));
+                navigation.navigate('Dashboard', {
+                    apiToken: response.data.data.token,
+                });
             })
             .catch(function (error) {
                 setError('Login Error');
