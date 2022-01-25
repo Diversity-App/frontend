@@ -1,14 +1,5 @@
-
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -26,16 +17,16 @@ import Dashboard from './src/screens/Dashboard';
 // };
 
 const Router = createStackNavigator(
-  {
-    HomeScreen,
-    LoginScreen,
-    RegisterScreen,
-    Dashboard,
-  },
-  {
-    initialRouteName: 'HomeScreen',
-    headerMode: 'none',
-  }
+    {
+        HomeScreen,
+        LoginScreen,
+        RegisterScreen,
+        Dashboard,
+    },
+    {
+        initialRouteName: 'HomeScreen',
+        headerMode: 'none',
+    },
 );
 
 // export default App;

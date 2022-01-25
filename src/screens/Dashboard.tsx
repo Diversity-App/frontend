@@ -7,18 +7,37 @@ import Paragraph from '../components/Paragraph';
 import { Navigation } from '../types';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 type Props = {
     navigation: Navigation;
 };
 
-const Dashboard = ({ navigation }: Props) => (
-    <Background>
-        <Logo />
-        <Header>Let’s start</Header>
-        <Paragraph>Let's go for the code !!</Paragraph>
-        <Button color={'#0386D0'} mode="contained" onPress={() => navigation.navigate('HomeScreen')}>Logout</Button>
-    </Background>
-);
+const Dashboard = ({ navigation }: Props) => {
+    const connectSpotify = () => {
+        console.log('linking spotify');
+    };
+
+    return (
+        <Background>
+            <Logo />
+            <Header>Here is your score</Header>
+            <AnimatedCircularProgress
+                size={120}
+                width={15}
+                fill={49}
+                tintColor="#00e0ff"
+                onAnimationComplete={() => console.log('onAnimationComplete')}
+                backgroundColor="#3d5875"
+            />
+            <Button color={'#0386D0'} mode="contained" onPress={() => connectSpotify()}>
+                Connect to Youtube
+            </Button>
+            <Button color={'#0386D0'} mode="contained" onPress={() => navigation.navigate('HomeScreen')}>
+                Logout
+            </Button>
+        </Background>
+    );
+};
 
 export default memo(Dashboard);
