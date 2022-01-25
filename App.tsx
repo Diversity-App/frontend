@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import HomeScreen from './src/screens/HomeScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import RegisterScreen from './src/screens/RegisterScreen';
+import Dashboard from './src/screens/Dashboard';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const App = () => {
+//   return (
+//     <SafeAreaView>
+//       <HomeScreen></HomeScreen>
+//     </SafeAreaView>
+//   );
+// };
+
+const Router = createStackNavigator(
+    {
+        HomeScreen,
+        LoginScreen,
+        RegisterScreen,
+        Dashboard,
+    },
+    {
+        initialRouteName: 'HomeScreen',
+        headerMode: 'none',
+    },
+);
+
+// export default App;
+export default createAppContainer(Router);
