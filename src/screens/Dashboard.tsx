@@ -13,10 +13,8 @@ type Props = {
     navigation: Navigation;
 };
 
-const Dashboard = ({ route, navigation }: Props) => {
-    const { apiToken } = route.params;
+const Dashboard = ({ navigation }: Props) => {
     const connectSpotify = () => {
-        console.log('API => ', apiToken);
         console.log('linking spotify');
     };
 
