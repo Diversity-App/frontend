@@ -1,12 +1,13 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import React from "react";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 
-import HomeScreen from './src/screens/HomeScreen';
-import LoginScreen from './src/screens/LoginScreen';
-import RegisterScreen from './src/screens/RegisterScreen';
-import Dashboard from './src/screens/Dashboard';
+import HomeScreen from "./src/screens/HomeScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import RegisterScreen from "./src/screens/RegisterScreen";
+import Dashboard from "./src/screens/Dashboard";
+import ConnectAccounts from "./src/screens/ConnectAccounts";
+import YoutubeConnexion from "./src/screens/YoutubeConnexion";
 
 // const App = () => {
 //   return (
@@ -17,16 +18,19 @@ import Dashboard from './src/screens/Dashboard';
 // };
 
 const Router = createStackNavigator(
-    {
-        HomeScreen,
-        LoginScreen,
-        RegisterScreen,
-        Dashboard,
-    },
-    {
-        initialRouteName: 'HomeScreen',
-        headerMode: 'none',
-    },
+  {
+    HomeScreen,
+    LoginScreen,
+    RegisterScreen,
+    Dashboard,
+    ConnectAccounts,
+    YoutubeConnexion
+
+  },
+  {
+    initialRouteName: "HomeScreen",
+    headerMode: "none"
+  }
 );
 
 // export default App;
