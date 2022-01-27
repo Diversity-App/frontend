@@ -12,7 +12,6 @@ type Props = {
 };
 
 const YoutubeConnexion = ({ navigation, apiToken }: Props) => {
-
   const params = {
     clientId: "477634730335-4tuj7dprmu3m88m600qnm722ico8g1df.apps.googleusercontent.com",
     redirectUri: makeRedirectUri({
@@ -30,12 +29,14 @@ const YoutubeConnexion = ({ navigation, apiToken }: Props) => {
   const [request, response, promptAsync] = useAuthRequest(params, url);
 
   useEffect(() => {
-    // @ts-ignore
-    const { code } = response?.params;
-
     if (!response) {
       return;
     }
+
+    // @ts-ignore
+    const { code } = response.params;
+
+
     if (response?.type !== "success") {
       navigation.navigate("ConnectAccounts");
     }
