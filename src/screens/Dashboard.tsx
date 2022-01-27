@@ -8,6 +8,7 @@ import { Navigation } from '../types';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import { styles } from '../components/Header';
 
 type Props = {
     navigation: Navigation;
@@ -17,8 +18,9 @@ const Dashboard = ({ navigation }: Props) => {
     const connectGoogle = () => {
         console.log('linking spotify');
     };
+    // Percentage 
+    const percent = Math.floor(Math.random() * 100) + 1;
 
-    const percent = Math.round(Math.random() * 100);
 
     return (
         <Background>
@@ -29,7 +31,11 @@ const Dashboard = ({ navigation }: Props) => {
                 width={8}
                 fill={percent}
                 tintColor="#00e0ff"
-                children={(e) => <Text adjustsFontSizeToFit>{e}%</Text>}
+                children={(e) => <Text style={{
+                    fontSize: 26,
+                    color: theme.colors.primary,
+                    fontWeight: 'bold',
+                }} adjustsFontSizeToFit>{e}%</Text>}
                 onAnimationComplete={() => console.log('onAnimationComplete')}
                 backgroundColor="#3d5875"
             />
