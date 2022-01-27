@@ -13,7 +13,7 @@ import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-
 import axios from 'axios';
 
 type Props = {
-    navigation: Navigation;
+    navigation: Navigation & any;
 };
 
 const LoginScreen = ({ navigation }: Props) => {
@@ -55,7 +55,9 @@ const LoginScreen = ({ navigation }: Props) => {
         axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data.data.token));
-                navigation.navigate('Dashboard');
+                navigation.navigate('ConnectAccounts', {
+                    apiToken: response.data.data.token,
+                });
             })
             .catch(function (error) {
                 setError('Login Error');

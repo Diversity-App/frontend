@@ -7,15 +7,17 @@ import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { Button } from "react-native-paper";
 import { makeRedirectUri, Prompt, useAuthRequest } from "expo-auth-session";
 // import Button from '../components/Button';
+import localStorage from "../utils/localStorage";
 
 type Props = {
-  navigation: Navigation;
+  navigation: Navigation & any;
+  apiToken: string;
 };
 
 
-const ConnectAccounts = ({ navigation }: Props) => {
+const ConnectAccounts = ({ navigation, apiToken }: Props) => {
   function connectYoutube() {
-    navigation.navigate("YoutubeConnexion")
+    navigation.navigate("YoutubeConnexion", { apiToken })
   }
   const isConnected = localStorage.getItem("YoutubeConnexion")
 
