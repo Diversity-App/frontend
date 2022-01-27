@@ -20,20 +20,21 @@ const Dashboard = ({ navigation }: Props) => {
 
     return (
         <Background>
-            <Logo />
             <Header>Here is your score</Header>
             <AnimatedCircularProgress
-                size={120}
-                width={15}
+                size={250}
+                rotation={0}
+                width={8}
                 fill={49}
                 tintColor="#00e0ff"
+                children={(e) => <Text>{e}%</Text>}
                 onAnimationComplete={() => console.log('onAnimationComplete')}
                 backgroundColor="#3d5875"
             />
-            <Button color={'#0386D0'} mode="contained" onPress={() => connectSpotify()}>
+            {/*<Button color={'#0386D0'} mode="contained" onPress={() => connectSpotify()}>
                 Connect to Youtube
-            </Button>
-            <Button color={'#0386D0'} mode="contained" onPress={() => navigation.navigate('HomeScreen')}>
+    </Button>*/}
+            <Button style={{ margin: 25 }} color={'#0386D0'} mode="contained" onPress={() => navigation.navigate('HomeScreen')}>
                 Logout
             </Button>
         </Background>
