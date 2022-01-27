@@ -33,7 +33,7 @@ const Dashboard = ({ navigation }: Props) => {
                 fill={percent}
                 tintColor="#00e0ff"
                 children={(e) => <Text style={{
-                    fontSize: 26,
+                    fontSize: 45,
                     color: theme.colors.primary,
                     fontWeight: 'bold',
                 }} adjustsFontSizeToFit>{e}%</Text>}
