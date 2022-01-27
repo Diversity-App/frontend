@@ -25,9 +25,9 @@ const Dashboard = ({ navigation }: Props) => {
                 size={250}
                 rotation={0}
                 width={8}
-                fill={49}
+                fill={Math.random() * 100}
                 tintColor="#00e0ff"
-                children={(e) => <Text>{e}%</Text>}
+                children={(e) => <Text adjustsFontSizeToFit>{e}%</Text>}
                 onAnimationComplete={() => console.log('onAnimationComplete')}
                 backgroundColor="#3d5875"
             />
