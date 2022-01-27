@@ -9,6 +9,7 @@ import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { styles } from '../components/Header';
+import { theme } from '../core/theme'
 
 type Props = {
     navigation: Navigation;
