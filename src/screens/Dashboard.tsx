@@ -14,9 +14,11 @@ type Props = {
 };
 
 const Dashboard = ({ navigation }: Props) => {
-    const connectSpotify = () => {
+    const connectGoogle = () => {
         console.log('linking spotify');
     };
+
+    const percent = Math.round(Math.random() * 100);
 
     return (
         <Background>
@@ -25,13 +27,13 @@ const Dashboard = ({ navigation }: Props) => {
                 size={250}
                 rotation={0}
                 width={8}
-                fill={Math.random() * 100}
+                fill={percent}
                 tintColor="#00e0ff"
                 children={(e) => <Text adjustsFontSizeToFit>{e}%</Text>}
                 onAnimationComplete={() => console.log('onAnimationComplete')}
                 backgroundColor="#3d5875"
             />
-            {/*<Button color={'#0386D0'} mode="contained" onPress={() => connectSpotify()}>
+            {/*<Button color={'#0386D0'} mode="contained" onPress={() => connectGoogle()}>
                 Connect to Youtube
     </Button>*/}
             <Button style={{ margin: 25 }} color={'#0386D0'} mode="contained" onPress={() => navigation.navigate('HomeScreen')}>
