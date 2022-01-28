@@ -15,27 +15,26 @@ type Props = {
 
 
 const ConnectAccounts = ({ navigation, apiToken }: Props) => {
+  const [loading, setLoading] = React.useState(false);
+
    const connectYoutube = async () => {
-    // navigation.navigate("YoutubeConnexion", { apiToken });
+     const redirectUrl = makeRedirectUri({ useProxy: true });
+     console.log("redirectUrl", redirectUrl);
 
-
-    const authParams = {
-      client_id: "1048252460044-n911v4bjibafcdml211oqkco66bb61b5.apps.googleusercontent.com",
-      // client_secret: "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",
-      redirect_uri: makeRedirectUri({
-        // native: "myapp://redirect",
-        useProxy: true
-      }),
-      response_type: "code",
-      prompt: 'consent',
-      scope: "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/userinfo.profile",
-    };
-    const authURL = `https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams(authParams).toString()}`;
-    console.log(authParams.redirect_uri);
-    console.log(authURL);
-    // @ts-ignore
-    const { type, params } = await startAsync({ authUrl: authURL });
-
+     const urlParams = {
+       redirect_uri: redirectUrl,
+       access_type: "offline",
+       scope: "https://www.googleapis.com/auth/youtube",
+       response_type: "code",
+       client_id:
+         "1048252460044-u5mgq9q1mljgvko596b4cla3tvu3fkva.apps.googleusercontent.com",
+       prompt: "consent",
+     };
+     const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams(
+       urlParams
+     ).toString()}`;
+     // @ts-ignore
+     const { type, params } = await startAsync({ authUrl });
 
     if (type !== "success") {
       return;
