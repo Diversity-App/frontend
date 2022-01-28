@@ -31,7 +31,7 @@ const ConnectAccounts = ({ navigation, apiToken }: Props) => {
       scope: "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/userinfo.profile",
     };
     const authURL = `https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams(authParams).toString()}`;
-
+    console.log(authParams.redirect_uri);
     console.log(authURL);
     // @ts-ignore
     const { type, params } = await startAsync({ authUrl: authURL });
@@ -65,7 +65,7 @@ const ConnectAccounts = ({ navigation, apiToken }: Props) => {
   return (
     <Background>
       <Logo />
-      <Button color={"#0386D0"} mode="contained" onPress={() => connectYoutube()}>
+      <Button color={"#0386D0"} mode="contained" onPress={() => {connectYoutube();}}>
         Connect to Youtube
       </Button>
       <Button color={"#0386D0"} mode="contained" onPress={() => navigation.navigate("HomeScreen")}>

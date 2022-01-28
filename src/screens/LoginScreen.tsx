@@ -48,7 +48,7 @@ const LoginScreen = ({ navigation }: Props) => {
 
         const config = {
             method: 'post',
-            url: 'http://localhost:8080/auth/login',
+            url: 'http://192.168.43.131:8080/auth/login',
             data: data,
         };
 
