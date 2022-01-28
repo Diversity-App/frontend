@@ -12,6 +12,8 @@ import { Button } from 'react-native-paper';
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
 import axios from 'axios';
 
+import { IPV4_ADDRESS } from "@env";
+
 type Props = {
     navigation: Navigation;
 };
@@ -58,7 +60,7 @@ const RegisterScreen = ({ navigation }: Props) => {
 
         const config = {
             method: 'post',
-            url: 'http://192.168.43.131:8080/auth/register',
+            url: `http://${IPV4_ADDRESS}:8080/auth/register`,
             data: data,
         };
 

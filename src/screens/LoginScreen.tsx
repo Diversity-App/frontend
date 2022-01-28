@@ -12,6 +12,8 @@ import { Button } from 'react-native-paper';
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
 import axios from 'axios';
 
+import {IPV4_ADDRESS} from "@env";
+
 type Props = {
     navigation: Navigation & any;
 };
@@ -48,7 +50,7 @@ const LoginScreen = ({ navigation }: Props) => {
 
         const config = {
             method: 'post',
-            url: 'http://localhost:8080/auth/login',
+            url: `http://${IPV4_ADDRESS}:8080/auth/login`,
             data: data,
         };
 
@@ -104,7 +106,7 @@ const LoginScreen = ({ navigation }: Props) => {
                 {enableMask ? 'View Code' : 'Hide code'}
             </Button>
             <Button color={'#0386D0'} mode="contained" onPress={_onLoginPressed}>
-                Log In
+                {IPV4_ADDRESS}
             </Button>
             <Text>{error}</Text>
             <View style={styles.row}>
