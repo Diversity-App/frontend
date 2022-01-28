@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        name: Installing NodeJS
+        with:
+          node-version: '16'
       - name: Cache npm dependencies
         id: cache
         uses: actions/cache@v2
@@ -46,7 +50,7 @@ jobs:
       - uses: actions/setup-node@v2
         name: Installing NodeJS
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Cache npm dependencies
         id: cache
         uses: actions/cache@v2
@@ -81,7 +85,7 @@ jobs:
       - uses: actions/setup-node@v2
         name: Installing NodeJS
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Cache npm dependencies
         id: cache
         uses: actions/cache@v2
@@ -96,14 +100,16 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
-      - name: Build app
+      - name: Build Archive
         working-directory: ./ios
         run: |
-          xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app archive -archivePath myapp.xcarchive -allowProvisioningUpdates
-          xcodebuild -exportArchive -archivePath ./myapp.xcarchive -exportPath . -exportOptionsPlist myapp/Info.plist
-          mv diversity_app.ipa ../diversity_app.ipa
+          xcodebuild -workspace diversity_app.xcworkspace -scheme diversity_app archive -sdk iphoneos -configuration Debug -UseModernBuildSystem=NO -archivePath $PWD/diversity_app CODE_SIGNING_ALLOWED=NO
+      - name: Export Archive
+        working-directory: ./ios
+        run: |
+          xcodebuild -exportArchive -archivePath ./diversity_app.xcarchive -exportPath . -exportOptionsPlist diversity_app/Info.plist CODE_SIGNING_ALLOWED=NO -configuration Debug -sdk iphoneos build
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: myapp.ipa
-          path: ios/build/
+          name: diversity_app.ipa
+          path: ios/diversity_app.ipa
