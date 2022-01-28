@@ -17,7 +17,7 @@ const YoutubeConnexion = ({ navigation, apiToken }: Props) => {
     redirectUri: makeRedirectUri({
       native: "myapp://redirect"
     }),
-    scope: "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/userinfo.profile",
+    scopes: ["https://www.googleapis.com/auth/youtube","https://www.googleapis.com/auth/userinfo.profile"],
     response_type: "code",
     prompt: Prompt.Consent
   };
@@ -33,13 +33,14 @@ const YoutubeConnexion = ({ navigation, apiToken }: Props) => {
       return;
     }
 
+
+    if (response?.type !== "success") {
+      return navigation.navigate("ConnectAccounts");
+    }
+
     // @ts-ignore
     const { code } = response.params;
 
-
-    if (response?.type !== "success") {
-      navigation.navigate("ConnectAccounts");
-    }
     axios.get("http://localhost:8080/api/auth/sso/google/callback", {
       params: {
         code: code
@@ -61,6 +62,9 @@ const YoutubeConnexion = ({ navigation, apiToken }: Props) => {
 
   }, [response]);
 
+  // useEffect(() => {
+    promptAsync();
+  // }, []);
 
   return null;
 };
