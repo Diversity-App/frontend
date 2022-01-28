@@ -21,16 +21,18 @@ const ConnectAccounts = ({ navigation, apiToken }: Props) => {
 
     const authParams = {
       client_id: "1048252460044-n911v4bjibafcdml211oqkco66bb61b5.apps.googleusercontent.com",
+      // client_secret: "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",
       redirect_uri: makeRedirectUri({
         // native: "myapp://redirect",
         useProxy: true
       }),
-      scope: "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/userinfo.profile",
       response_type: "code",
-      prompt: Prompt.Consent
+      prompt: 'consent',
+      scope: "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/userinfo.profile",
     };
     const authURL = `https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams(authParams).toString()}`;
 
+    console.log(authURL);
     // @ts-ignore
     const { type, params } = await startAsync({ authUrl: authURL });
 
