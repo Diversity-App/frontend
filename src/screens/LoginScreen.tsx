@@ -52,15 +52,17 @@ const LoginScreen = ({ navigation }: Props) => {
             data: data,
         };
 
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data.data.token));
-                navigation.navigate('Dashboard');
-            })
-            .catch(function (error) {
-                setError('Login Error');
-                console.log(error);
-            });
+        // axios(config)
+        //     .then(function (response) {
+        //         console.log(JSON.stringify(response.data.data.token));
+        //         navigation.navigate('Dashboard');
+        //     })
+        //     .catch(function (error) {
+        //         setError('Login Error');
+        //         console.log(error);
+        //     });
+
+        navigation.navigate('Dashboard');
     };
 
     return (
@@ -98,10 +100,30 @@ const LoginScreen = ({ navigation }: Props) => {
                     );
                 }}
             />
-            <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
+            <Button
+                color={'black'}
+                style={{
+                    margin: 10,
+                    borderRadius: 25,
+                    width: 150,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                onPress={toggleMask}>
                 {enableMask ? 'View Code' : 'Hide code'}
             </Button>
-            <Button color={'#0386D0'} mode="contained" onPress={_onLoginPressed}>
+            <Button
+                color={'black'}
+                style={{
+                    margin: 10,
+                    borderRadius: 25,
+                    width: 150,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                onPress={_onLoginPressed}>
                 Log In
             </Button>
             <Text>{error}</Text>

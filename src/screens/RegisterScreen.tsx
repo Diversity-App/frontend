@@ -17,23 +17,22 @@ type Props = {
 };
 
 const RegisterScreen = ({ navigation }: Props) => {
-    const [name, setName] = useState({ value: '', error: '' });
-    const [password, setPassword] = useState({ value: '', error: '' });
-    const [cont, setCont] = useState('');
-    const CELL_COUNT = 4;
-    const [enableMask, setEnableMask] = useState(true);
-    const [value, setValue] = useState('');
+    const [name, setName] = useState<{ value: string; error: string }>({ value: '', error: '' });
+    const [password, setPassword] = useState<{ value: string; error: string }>({ value: '', error: '' });
+    const CELL_COUNT: number = 4;
+    const [enableMask, setEnableMask] = useState<boolean>(true);
+    const [value, setValue] = useState<string>('');
     const ref = useBlurOnFulfill({ value: password.value, cellCount: CELL_COUNT });
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
         value: password.value,
         setValue: setValue,
     });
-    const [error, setError] = useState('');
+    const [error, setError] = useState<string>('');
 
     const _onSignUpPressed = () => {
         console.log(password.value, ' => ', name.value);
-        const nameError = nameValidator(name.value);
-        const passwordError = passwordValidator(password.value);
+        const nameError: string = nameValidator(name.value);
+        const passwordError: string = passwordValidator(password.value);
 
         if (nameError) {
             console.log('nameError');
@@ -47,8 +46,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             return;
         }
 
-        // var axios = require('axios');
-        const data = {
+        const value: { username: string; password: string } = {
             username: name.value,
             password: password.value,
         };
@@ -56,10 +54,10 @@ const RegisterScreen = ({ navigation }: Props) => {
         console.log(name.value);
         console.log(password.value);
 
-        const config = {
+        const config: any = {
             method: 'post',
             url: 'http://localhost:8080/auth/register',
-            data: data,
+            data: value,
         };
 
         axios(config)
@@ -77,17 +75,13 @@ const RegisterScreen = ({ navigation }: Props) => {
     return (
         <Background>
             <BackButton goBack={() => navigation.navigate('HomeScreen')} />
-
             <Logo />
-
             <Header>Create Account.</Header>
-
             <Input
                 placeholder="Username"
                 inputStyle={{ color: 'white' }}
                 onChangeText={(text) => setName({ value: text, error: 'NameError' })}
             />
-
             <CodeField
                 ref={ref}
                 {...props}
@@ -113,16 +107,36 @@ const RegisterScreen = ({ navigation }: Props) => {
                     );
                 }}
             />
-
-            <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
+            <Button
+                color={'black'}
+                // mode="contained"
+                style={{
+                    margin: 10,
+                    borderRadius: 25,
+                    width: 150,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                onPress={toggleMask}>
                 {enableMask ? 'View Code' : 'Hide code'}
             </Button>
 
-            <Button color={'#0386D0'} mode="contained" onPress={_onSignUpPressed}>
+            <Button
+                color={'black'}
+                style={{
+                    margin: 10,
+                    borderRadius: 25,
+                    width: 150,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                // mode="contained"
+                onPress={_onSignUpPressed}>
                 Sign Up
             </Button>
             <Text>{error}</Text>
-
             <View style={styles.row}>
                 <Text style={styles.label}>Already have an account? </Text>
                 <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
