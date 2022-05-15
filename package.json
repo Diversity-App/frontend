@@ -24,7 +24,8 @@
     "react-native-svg": "^12.1.1",
     "react-native-vector-icons": "^9.0.0",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.10.2"
+    "react-navigation-stack": "^1.10.2",
+    "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

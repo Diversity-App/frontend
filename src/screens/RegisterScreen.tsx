@@ -9,11 +9,21 @@ import { Navigation } from '../types';
 import { passwordValidator, nameValidator } from '../core/utils';
 import { Input } from 'react-native-elements';
 import { Button } from 'react-native-paper';
-import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
-import axios from 'axios';
+import { CodeField, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
 type Props = {
     navigation: Navigation;
+};
+
+type User = {
+    username: string;
+    password: string;
+};
+
+type HTTPRequest = {
+    url: string;
+    data: User;
 };
 
 const RegisterScreen = ({ navigation }: Props) => {
@@ -28,6 +38,17 @@ const RegisterScreen = ({ navigation }: Props) => {
         setValue: setValue,
     });
     const [error, setError] = useState<string>('');
+    const [generatedUserName, setGeneratedUserName] = useState<string>('');
+    const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
+
+    const userNameGenerator = () => {
+        const newGeneratedUsername: string = uniqueNamesGenerator({
+            dictionaries: [adjectives, animals, colors],
+            length: 2,
+        });
+        setName({ value: newGeneratedUsername, error: 'NameError' });
+        setGeneratedUserName(newGeneratedUsername);
+    };
 
     const _onSignUpPressed = () => {
         console.log(password.value, ' => ', name.value);
@@ -46,7 +67,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             return;
         }
 
-        const value: { username: string; password: string } = {
+        const value: User = {
             username: name.value,
             password: password.value,
         };
@@ -54,18 +75,18 @@ const RegisterScreen = ({ navigation }: Props) => {
         console.log(name.value);
         console.log(password.value);
 
-        const config: any = {
-            method: 'post',
+        const config: HTTPRequest = {
             url: 'http://localhost:8080/auth/register',
             data: value,
         };
 
-        axios(config)
-            .then(function (response) {
+        axios
+            .post(config.url, config.data)
+            .then((response: AxiosResponse) => {
                 console.log(JSON.stringify(response.data));
                 navigation.navigate('Dashboard');
             })
-            .catch(function (error) {
+            .catch((error: AxiosError) => {
                 setError('Register Error');
                 console.log(error);
             });
@@ -78,10 +99,24 @@ const RegisterScreen = ({ navigation }: Props) => {
             <Logo />
             <Header>Create Account.</Header>
             <Input
-                placeholder="Username"
+                placeholder="Generate a Username"
                 inputStyle={{ color: 'white' }}
-                onChangeText={(text) => setName({ value: text, error: 'NameError' })}
+                value={generatedUserName}
+                disabled={true}
             />
+            <Button
+                color={'black'}
+                style={{
+                    margin: 10,
+                    borderRadius: 10,
+                    width: 250,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                onPress={userNameGenerator}>
+                Generate my username
+            </Button>
             <CodeField
                 ref={ref}
                 {...props}
@@ -109,9 +144,8 @@ const RegisterScreen = ({ navigation }: Props) => {
             />
             <Button
                 color={'black'}
-                // mode="contained"
                 style={{
-                    margin: 10,
+                    margin: 20,
                     borderRadius: 25,
                     width: 150,
                     height: 50,
@@ -132,7 +166,6 @@ const RegisterScreen = ({ navigation }: Props) => {
                     backgroundColor: 'white',
                     justifyContent: 'center',
                 }}
-                // mode="contained"
                 onPress={_onSignUpPressed}>
                 Sign Up
             </Button>
