@@ -6,7 +6,7 @@ type Props = {
     children: React.ReactNode;
 };
 
-const Paragraph = ({ children }: Props) => <Text style={styles.text}>{children}</Text>;
+const Paragraph: React.FC<Props> = ({ children }: Props) => <Text style={styles.text}>{children}</Text>;
 
 const styles = StyleSheet.create({
     text: {

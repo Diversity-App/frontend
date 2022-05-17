@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-navigation/material-bottom-tabs": "^6.2.1",
     "axios": "^0.24.0",
     "react": "17.0.2",
     "react-digit-input": "^2.1.0",

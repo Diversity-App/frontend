@@ -6,7 +6,7 @@ type Props = {
     goBack: () => void;
 };
 
-const BackButton = ({ goBack }: Props) => (
+const BackButton: React.FC<Props> = ({ goBack }: Props) => (
     <TouchableOpacity onPress={goBack} style={styles.container}>
         <Image style={styles.image} source={require('../assets/arrow_back.png')} />
     </TouchableOpacity>

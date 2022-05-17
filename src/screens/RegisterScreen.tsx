@@ -5,7 +5,7 @@ import Logo from '../components/Logo';
 import Header from '../components/Header';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
-import { Navigation } from '../types';
+import { Navigation, User, StringError, HTTPRequest } from '../types';
 import { passwordValidator, nameValidator } from '../core/utils';
 import { Input } from 'react-native-elements';
 import { Button } from 'react-native-paper';
@@ -16,19 +16,9 @@ type Props = {
     navigation: Navigation;
 };
 
-type User = {
-    username: string;
-    password: string;
-};
-
-type HTTPRequest = {
-    url: string;
-    data: User;
-};
-
-const RegisterScreen = ({ navigation }: Props) => {
-    const [name, setName] = useState<{ value: string; error: string }>({ value: '', error: '' });
-    const [password, setPassword] = useState<{ value: string; error: string }>({ value: '', error: '' });
+const RegisterScreen: React.FC<Props> = ({ navigation }: Props) => {
+    const [name, setName] = useState<StringError>({ value: '', error: '' });
+    const [password, setPassword] = useState<StringError>({ value: '', error: '' });
     const CELL_COUNT: number = 4;
     const [enableMask, setEnableMask] = useState<boolean>(true);
     const [value, setValue] = useState<string>('');

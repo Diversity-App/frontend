@@ -6,7 +6,7 @@ type Props = {
     children: React.ReactNode;
 };
 
-const Background = ({ children }: Props) => (
+const Background: React.FC<Props> = ({ children }: Props) => (
     <View style={styles.background}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
             {children}
