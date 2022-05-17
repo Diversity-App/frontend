@@ -1,17 +1,17 @@
 import React, { memo } from 'react';
-import { ImageBackground, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { ImageBackground, StyleSheet, KeyboardAvoidingView, View } from 'react-native';
 import { theme } from '../core/theme';
 
 type Props = {
     children: React.ReactNode;
 };
 
-const Background = ({ children }: Props) => (
-    <ImageBackground source={require('../assets/pour_quenelle_bis.png')} resizeMode="repeat" style={styles.background}>
+const Background: React.FC<Props> = ({ children }: Props) => (
+    <View style={styles.background}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
             {children}
         </KeyboardAvoidingView>
-    </ImageBackground>
+    </View>
 );
 
 const styles = StyleSheet.create({

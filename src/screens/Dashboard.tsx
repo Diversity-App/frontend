@@ -13,11 +13,7 @@ type Props = {
     navigation: Navigation;
 };
 
-const Dashboard = ({ navigation }: Props) => {
-    const connectSpotify = () => {
-        console.log('linking spotify');
-    };
-
+const Dashboard: React.FC<Props> = ({ navigation }: Props) => {
     return (
         <Background>
             <Logo />
@@ -30,11 +26,18 @@ const Dashboard = ({ navigation }: Props) => {
                 onAnimationComplete={() => console.log('onAnimationComplete')}
                 backgroundColor="#3d5875"
             />
-            <Button color={'#0386D0'} mode="contained" onPress={() => connectSpotify()}>
-                Connect to Youtube
-            </Button>
-            <Button color={'#0386D0'} mode="contained" onPress={() => navigation.navigate('HomeScreen')}>
-                Logout
+            <Button
+                color={'black'}
+                style={{
+                    margin: 10,
+                    borderRadius: 25,
+                    width: 150,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                onPress={() => navigation.navigate('HomeScreen')}>
+                Log In
             </Button>
         </Background>
     );

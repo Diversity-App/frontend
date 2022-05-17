@@ -6,34 +6,37 @@ import Header from '../components/Header';
 import BackButton from '../components/BackButton';
 import { theme } from '../core/theme';
 import { nameValidator, passwordValidator } from '../core/utils';
-import { Navigation } from '../types';
+import { Navigation, User, StringError, HTTPRequest } from '../types';
 import { Input } from 'react-native-elements';
 import { Button } from 'react-native-paper';
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
-import axios from 'axios';
+import axios, { Axios, AxiosError, AxiosResponse } from 'axios';
 
 type Props = {
     navigation: Navigation;
 };
 
-const LoginScreen = ({ navigation }: Props) => {
-    const [name, setName] = useState({ value: '', error: '' });
-    const [password, setPassword] = useState({ value: '', error: '' });
-    const [enableMask, setEnableMask] = useState(true);
+const LoginScreen: React.FC<Props> = ({ navigation }: Props) => {
+    const [name, setName] = useState<StringError>({ value: '', error: '' });
+    const [password, setPassword] = useState<StringError>({ value: '', error: '' });
+    const [enableMask, setEnableMask] = useState<boolean>(true);
     const CELL_COUNT = 4;
     const toggleMask = () => setEnableMask((f) => !f);
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState<string>('');
     const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
         value: password.value,
         setValue: setValue,
     });
-    const [error, setError] = useState('');
+    const [error, setError] = useState<string>('');
 
     const _onLoginPressed = () => {
+        // tmp code
+        navigation.navigate('Dashboard');
+
         console.log(password.value, ' => ', name.value);
-        const nameError = nameValidator(name.value);
-        const passwordError = passwordValidator(password.value);
+        const nameError: string = nameValidator(name.value);
+        const passwordError: string = passwordValidator(password.value);
 
         if (passwordError || nameError) {
             setName({ ...name, error: nameError });
@@ -41,26 +44,26 @@ const LoginScreen = ({ navigation }: Props) => {
             return;
         }
 
-        const data = {
+        const value: User = {
             username: name.value,
             password: password.value,
         };
 
-        const config = {
-            method: 'post',
+        const config: HTTPRequest = {
             url: 'http://localhost:8080/auth/login',
-            data: data,
+            data: value,
         };
 
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data.data.token));
-                navigation.navigate('Dashboard');
-            })
-            .catch(function (error) {
-                setError('Login Error');
-                console.log(error);
-            });
+        // axios.post(config.url, config.data)
+        //     .then((response: AxiosResponse) => {
+        //         console.log(JSON.stringify(response.data.data.token));
+        //         navigation.navigate('Dashboard');
+        //     })
+        //     .catch((error: AxiosError) => {
+        //         setError('Login Error');
+        //         console.log(error);
+        //     });
+
     };
 
     return (
@@ -98,10 +101,30 @@ const LoginScreen = ({ navigation }: Props) => {
                     );
                 }}
             />
-            <Button color={'#0386D0'} mode="contained" style={{ margin: 10 }} onPress={toggleMask}>
+            <Button
+                color={'black'}
+                style={{
+                    margin: 10,
+                    borderRadius: 25,
+                    width: 150,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                onPress={toggleMask}>
                 {enableMask ? 'View Code' : 'Hide code'}
             </Button>
-            <Button color={'#0386D0'} mode="contained" onPress={_onLoginPressed}>
+            <Button
+                color={'black'}
+                style={{
+                    margin: 10,
+                    borderRadius: 25,
+                    width: 150,
+                    height: 50,
+                    backgroundColor: 'white',
+                    justifyContent: 'center',
+                }}
+                onPress={_onLoginPressed}>
                 Log In
             </Button>
             <Text>{error}</Text>
